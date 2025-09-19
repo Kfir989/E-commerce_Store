@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import './BodyS.css';
 import Video from './Background/nightsky.mp4'
 import { Item } from "./Item";
