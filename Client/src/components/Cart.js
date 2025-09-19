@@ -5,7 +5,6 @@ import { ShopContext } from "./Context";
 function Cart(){
     const { cartItems, gettotalprice, Handleclick } = useContext(ShopContext);
     const total =  localStorage.getItem("products") ? gettotalprice() : 0
-    const API_URL = process.env.REACT_APP_API_URL || '';
     // The cart component is a visual element in the Nav-bar
     // it is mapping thourgh the list of products and if the product id amount on cartItems is bigger then 0 show it in cart.
     // for the close button imported the HandleClick function
@@ -25,7 +24,7 @@ function Cart(){
             <div className="cart-buttons">
                 <button className={total > 0 ? "cart-btn1": 'cart-btn4'} onClick={Handleclick}>Close</button>
 
-                <a href={total > 0 ? `${API_URL}/checkout` : ""}><button className="cart-btn2">Checkout</button></a>
+                <a href={total > 0 ? '/checkout' : ""}><button className="cart-btn2">Checkout</button></a>
             </div>
         </div>
     )
