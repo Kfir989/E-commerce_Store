@@ -4,25 +4,41 @@ import BodyS from "./BodyS";
 import Video from "./Background/nightsky.mp4";
 import { ShopContext } from "./Context";
 
-// --- Shared test data ---
+// ----------------------
+// Shared test data
+// ----------------------
 const mockProducts = [
   { Id: 1, Name: "Test Shoe", Price: 100, IMG: "/test.jpg", Desc: "A test product" }
 ];
 
-// --- Utility to mock localStorage & render with optional context ---
+// ----------------------
+// Helpers
+// ----------------------
+
+// Renders BodyS with optional context values
 function renderWithContext(ctxValue = { addToCart: jest.fn(), cartItems: { 1: 0 } }) {
-  Storage.prototype.getItem = jest.fn(() => JSON.stringify(mockProducts));
   return render(
-    <ShopContext.Provider value={{ products: [] }}>
+    <ShopContext.Provider value={ctxValue}>
       <BodyS />
     </ShopContext.Provider>
   );
 }
 
 // ----------------------
-//  Home Page Elements
+// Test suite
 // ----------------------
-describe("Home page static elements", () => {
+describe("BodyS component", () => {
+  beforeEach(() => {
+    // Reset and mock localStorage for each test
+    Storage.prototype.getItem = jest.fn((key) => {
+      if (key === "products") return JSON.stringify(mockProducts);
+      return null;
+    });
+  });
+
+  // ------------------
+  // Static UI elements
+  // ------------------
   test("renders background video", () => {
     render(<BodyS />);
     const videoElement = screen.getByTestId("video");
@@ -41,12 +57,10 @@ describe("Home page static elements", () => {
     render(<BodyS />);
     expect(screen.getByRole("button", { name: /Go To Shop/i })).toBeInTheDocument();
   });
-});
 
-// ----------------------
-//  Shop / Products
-// ----------------------
-describe("Shop products and cart interactions", () => {
+  // ------------------
+  // Shop / products
+  // ------------------
   test("renders products from localStorage", () => {
     renderWithContext();
     expect(screen.getByText("Test Shoe")).toBeInTheDocument();
