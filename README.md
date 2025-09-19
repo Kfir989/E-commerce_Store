@@ -53,6 +53,12 @@ The backend is powered by **Node.js** and Express, providing a lightweight serve
 
 ---
 
+## 🚀 Deployment  
+
+The application is fully deployed and can be accessed online at [**E-Commerce Store**](https://e-commerce-store-front.onrender.com). The frontend is hosted on **Render** and communicates securely with the backend API. During deployment, environment variables were used to safely manage sensitive information like database connection strings. The deployment process involved building the React frontend, setting up the Node.js/Express backend, and configuring **CORS** to allow the frontend to fetch data from the backend. This live deployment provides a real-world demonstration of the project’s functionality, allowing users to browse products, manage their cart, and simulate checkout in a production environment.
+
+---
+
 ## 🖼️ Screenshots
 
 Here is a preview of the Website:
@@ -70,12 +76,6 @@ Here is a preview of the Website:
   <img src="Client/public/Images/more.png" alt="Screenshot 5" width="900" style="margin: 5px;">
   <img src="Client/public/Images/check.png" alt="Screenshot 6" width="900" style="margin: 5px;">
 </p>
-
----
-
-## 🚀 Deployment  
-
-The application is fully deployed and can be accessed online at [**E-Commerce Store**](https://e-commerce-store-front.onrender.com). The frontend is hosted on **Render** and communicates securely with the backend API. During deployment, environment variables were used to safely manage sensitive information like database connection strings. The deployment process involved building the React frontend, setting up the Node.js/Express backend, and configuring **CORS** to allow the frontend to fetch data from the backend. This live deployment provides a real-world demonstration of the project’s functionality, allowing users to browse products, manage their cart, and simulate checkout in a production environment.
 
 ---
 
