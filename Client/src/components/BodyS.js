@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { ShopContext } from "./Context";
 import './BodyS.css';
 import Video from './Background/nightsky.mp4'
 import { Item } from "./Item";
