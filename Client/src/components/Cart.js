@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, {useContext} from "react";
 import './Cart.css';
 import ItemInCart from "./ItemsInCart";
@@ -24,7 +25,7 @@ function Cart(){
             <div className="cart-buttons">
                 <button className={total > 0 ? "cart-btn1": 'cart-btn4'} onClick={Handleclick}>Close</button>
 
-                <a href={total > 0 ? '/checkout' : ""}><button className="cart-btn2">Checkout</button></a>
+                <Link to={total > 0 ? "/checkout" : "#"}><button className="cart-btn2" disabled={total === 0}>Checkout</button></Link>
             </div>
         </div>
     )
