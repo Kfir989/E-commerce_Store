@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongojs = require("mongojs");
+const mongoUri = process.env.MONGO_URI;
  // used proxy(on localhost port 3001) in package.json instead of installing CORS. 
 //If you use the shared mongodb server:
-const db = mongojs(
-  'mongodb+srv://kfir42_db_user:TYd5u3NJEW3cjLQ6@cluster0.ahyy6rv.mongodb.net/products?retryWrites=true&w=majority&appName=Cluster0',['shop']);
+const db = mongojs(mongoUri,['shop']);
 //Edit this line to point to your specific collection!
 const tasks_coll = db.collection('shop'); 
 
