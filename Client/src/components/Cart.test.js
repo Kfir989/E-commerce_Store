@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import Cart from "./Cart";
 import { ShopContext } from "./Context";
+import { MemoryRouter } from 'react-router-dom';
 
 // default context
 const defaultContext = {
