@@ -30,15 +30,19 @@ export const ShopContextProvider = (props) =>{
     }
     // fetching "products" into local storage once page first loads:
     useEffect(() => {
-        fetch(`${API_URL}/products`,{
-            method: "GET",
-    })
-        .then((res) => res.json())
-        .then((data) =>{
-            setProducts(data)
-            localStorage.setItem("products", JSON.stringify(data));
-        })
-    },[])
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch(`${API_URL}/products`, { method: "GET" });
+                const data = await res.json();
+                setProducts(data); 
+                localStorage.setItem("products", JSON.stringify(data)); 
+            } catch (err) {
+                console.error("Failed to fetch products:", err);
+            }
+        };
+
+        fetchProducts();
+    }, []);
     // total cart price: item * item price
     const gettotalprice = () => {
         let total =0;
