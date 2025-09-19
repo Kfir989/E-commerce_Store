@@ -14,7 +14,7 @@ function getDefaultCart(){
 
 // Project's functionality:
 export const ShopContextProvider = (props) =>{
-    const [products,setProducts] = useState([]);
+    const [products,setProducts] = useState(localStorage.getItem("products"));
     const [cartItems, setCartItems] = useState(localStorage.getItem("cart") ?JSON.parse(localStorage.getItem("cart")) : getDefaultCart());
     const API_URL = process.env.REACT_APP_API_URL || '';
     const [Click, setOnClick] = useState(false);
@@ -30,19 +30,15 @@ export const ShopContextProvider = (props) =>{
     }
     // fetching "products" into local storage once page first loads:
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const res = await fetch(`${API_URL}/products`, { method: "GET" });
-                const data = await res.json();
-                setProducts(data); 
-                localStorage.setItem("products", JSON.stringify(data)); 
-            } catch (err) {
-                console.error("Failed to fetch products:", err);
-            }
-        };
-
-        fetchProducts();
-    }, []);
+        fetch(`${API_URL}/products`,{
+            method: "GET",
+    })
+        .then((res) => res.json())
+        .then((data) =>{
+            setProducts(data)
+            localStorage.setItem("products", JSON.stringify(data));
+        })
+    },[])
     // total cart price: item * item price
     const gettotalprice = () => {
         let total =0;
