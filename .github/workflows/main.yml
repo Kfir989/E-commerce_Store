@@ -2,27 +2,50 @@ name: Run React Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - name: Setup Node
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2️⃣ Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: '20'
 
-      - name: Install dependencies
+      # 3️⃣ Find the client folder automatically
+      - name: Find client folder
+        id: find-client
         run: |
-          cd client
+          if [ -d "./client" ]; then
+            echo "CLIENT_PATH=client" >> $GITHUB_ENV
+          elif [ -d "./Client" ]; then
+            echo "CLIENT_PATH=Client" >> $GITHUB_ENV
+          else
+            echo "No client folder found!"
+            exit 1
+          fi
+
+      # 4️⃣ Install dependencies
+      - name: Install client dependencies
+        run: |
+          cd $CLIENT_PATH
           npm install
 
-      - name: Run tests
+      # 5️⃣ Run tests
+      - name: Run React tests
         run: |
-          cd client
+          cd $CLIENT_PATH
           npm test -- --watchAll=false
