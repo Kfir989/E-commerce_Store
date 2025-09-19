@@ -13,8 +13,6 @@ function Bodys(){
             behavior: 'smooth'
         });
     };
-
-    const { products } = useContext(ShopContext);
     
     return(
         <>
