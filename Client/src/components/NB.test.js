@@ -2,6 +2,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import NB from "./NB";
 import { ShopContext } from "./Context";
+import { MemoryRouter } from 'react-router-dom';
+
 
 // default context
 const defaultContext = {
@@ -14,7 +16,9 @@ const defaultContext = {
 const renderNavbar = (contextValue = defaultContext) => {
   return render(
     <ShopContext.Provider value={contextValue}>
-      <NB />
+        <MemoryRouter>
+            <NB />
+        </MemoryRouter>
     </ShopContext.Provider>
   );
 };
