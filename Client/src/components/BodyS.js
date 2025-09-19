@@ -13,6 +13,9 @@ function Bodys(){
             behavior: 'smooth'
         });
     };
+
+    const { products } = useContext(ShopContext);
+    
     return(
         <>
             <div className="body-container">
@@ -90,12 +93,19 @@ function Bodys(){
              <br></br>
              <br></br>
              <br></br>
-             <div className="shop-container">
-                <h1 className="shop-h1">Leh-Leha Shop</h1>
-                <div className="Items"> {localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).map((product) => (
+            <div className="shop-container">
+            <h1 className="shop-h1">Leh-Leha Shop</h1>
+
+            <div className="Items">
+                {products.length > 0 ? (
+                products.map((product) => (
                     <Item key={product.Id} data={product} />
-                )): ""}</div>
-             </div>
+                ))
+                ) : (
+                <p>Loading products...</p>
+                )}
+            </div>
+            </div>
 </>     
     )
 }
