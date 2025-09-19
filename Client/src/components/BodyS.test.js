@@ -13,7 +13,7 @@ const mockProducts = [
 function renderWithContext(ctxValue = { addToCart: jest.fn(), cartItems: { 1: 0 } }) {
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(mockProducts));
   return render(
-    <ShopContext.Provider value={ctxValue}>
+    <ShopContext.Provider value={{ products: [] }}>
       <BodyS />
     </ShopContext.Provider>
   );
