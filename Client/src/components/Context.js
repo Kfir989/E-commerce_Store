@@ -16,6 +16,7 @@ function getDefaultCart(){
 export const ShopContextProvider = (props) =>{
     const [products,setProducts] = useState(localStorage.getItem("products"));
     const [cartItems, setCartItems] = useState(localStorage.getItem("cart") ?JSON.parse(localStorage.getItem("cart")) : getDefaultCart());
+    const API_URL = process.env.REACT_APP_API_URL || '';
     const [Click, setOnClick] = useState(false);
     const Handleclick = () => setOnClick(!Click);
 
@@ -29,7 +30,7 @@ export const ShopContextProvider = (props) =>{
     }
     // fetching "products" into local storage once page first loads:
     useEffect(() => {
-        fetch("/products",{
+        fetch(`${API_URL}/products`,{
             method: "GET",
     })
         .then((res) => res.json())
