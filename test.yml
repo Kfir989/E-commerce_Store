@@ -1,32 +1,36 @@
-name: Run React Tests
+name: Run React Client Tests
 
+# Trigger workflow on pushes or pull requests to main
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  test:
+  test-client:
+    name: Test Client App
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x]
-
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v3
+
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20  
+
 
       - name: Install dependencies
         run: npm install
         working-directory: ./client
 
-      - name: Run tests
+
+      - name: Run React tests
         run: npm test -- --watchAll=false
         working-directory: ./client
