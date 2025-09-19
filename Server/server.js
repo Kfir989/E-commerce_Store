@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongojs = require("mongojs");
+const cors = require('cors');
 const mongoUri = process.env.MONGO_URI;
  // used proxy(on localhost port 3001) in package.json instead of installing CORS. 
 //If you use the shared mongodb server:
@@ -10,6 +11,9 @@ const db = mongojs(mongoUri,['shop']);
 const tasks_coll = db.collection('shop'); 
 
 const app = express();
+
+app.use(cors());
+
 app.use(express.json()); // Middleware to parse JSON body
 
 // GET route to fetch all products from the MangoDB
