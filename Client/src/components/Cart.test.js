@@ -14,7 +14,9 @@ const defaultContext = {
 const renderCart = (contextValue = defaultContext) => {
   return render(
     <ShopContext.Provider value={contextValue}>
-      <Cart />
+      <MemoryRouter>
+        <Cart />
+      </MemoryRouter>
     </ShopContext.Provider>
   );
 };
