@@ -58,18 +58,24 @@ The backend is powered by **Node.js** and Express, providing a lightweight serve
 Here is a preview of the Website:
 
 <p align="center">
-  <img src="public/home.png" alt="Screenshot 2" width="900" style="margin: 5px;">
+  <img src="Client/public/Images/home.png" alt="Screenshot 2" width="900" style="margin: 5px;">
 </p>
 
 <p align="center">
-  <img src="public/catalog.png" alt="Screenshot 3" width="900" style="margin: 5px;">
-  <img src="public/catalog1.png" alt="Screenshot 4" width="900" style="margin: 5px;">
+  <img src=Client/public/Images/catalog.png" alt="Screenshot 3" width="900" style="margin: 5px;">
+  <img src="Client/public/Images/catalog1.png" alt="Screenshot 4" width="900" style="margin: 5px;">
 </p>
 
 <p align="center">
-  <img src="public/more.png" alt="Screenshot 5" width="900" style="margin: 5px;">
-  <img src="public/check.png" alt="Screenshot 6" width="900" style="margin: 5px;">
+  <img src="Client/public/Images/more.png" alt="Screenshot 5" width="900" style="margin: 5px;">
+  <img src="Client/public/Images/check.png" alt="Screenshot 6" width="900" style="margin: 5px;">
 </p>
+
+---
+
+## 🚀 Deployment  
+
+The application is fully deployed and can be accessed online at [**E-Commerce Store**](https://e-commerce-store-front.onrender.com). The frontend is hosted on **Render** and communicates securely with the backend API. During deployment, environment variables were used to safely manage sensitive information like database connection strings. The deployment process involved building the React frontend, setting up the Node.js/Express backend, and configuring **CORS** to allow the frontend to fetch data from the backend. This live deployment provides a real-world demonstration of the project’s functionality, allowing users to browse products, manage their cart, and simulate checkout in a production environment.
 
 ---
 
@@ -95,7 +101,7 @@ cd WebDev_Ecommerce_Website
 ```
 cd server
 npm install
-npm run start
+npm run dev
 ``` 
 
   2.A.Create the MongoDB collection
