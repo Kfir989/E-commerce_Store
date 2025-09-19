@@ -93,7 +93,7 @@ Follow these steps to run the project locally:
 
   1.Clone the repository
 ```
-git clone https://github.com/Kfir989/WebDev_Ecommerce_Website.git
+git clone https://github.com/Kfir989/E-commerce_Store.git
 cd WebDev_Ecommerce_Website
 ```
 
