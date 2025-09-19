@@ -14,7 +14,7 @@ function getDefaultCart(){
 
 // Project's functionality:
 export const ShopContextProvider = (props) =>{
-    const [products,setProducts] = useState(localStorage.getItem("products"));
+    const [products,setProducts] = useState([]);
     const [cartItems, setCartItems] = useState(localStorage.getItem("cart") ?JSON.parse(localStorage.getItem("cart")) : getDefaultCart());
     const API_URL = process.env.REACT_APP_API_URL || '';
     const [Click, setOnClick] = useState(false);
