@@ -62,7 +62,7 @@ Here is a preview of the Website:
 </p>
 
 <p align="center">
-  <img src=Client/public/Images/catalog.png" alt="Screenshot 3" width="900" style="margin: 5px;">
+  <img src="Client/public/Images/catalog.png" alt="Screenshot 3" width="900" style="margin: 5px;">
   <img src="Client/public/Images/catalog1.png" alt="Screenshot 4" width="900" style="margin: 5px;">
 </p>
 
