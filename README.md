@@ -12,7 +12,8 @@
   <img src="https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Database-MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
   <img src="https://img.shields.io/badge/Status-Completed-blue?style=for-the-badge" />
-
+  <img src="https://img.shields.io/badge/Test-Passed-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Deployment-Render-blue?style=for-the-badge" />
 </p>
 
 ---
