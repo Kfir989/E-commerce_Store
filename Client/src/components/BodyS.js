@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { ShopContext } from "./Context";
+import React from "react";
 import './BodyS.css';
 import Video from './Background/nightsky.mp4'
 import { Item } from "./Item";
@@ -94,19 +93,12 @@ function Bodys(){
              <br></br>
              <br></br>
              <br></br>
-            <div className="shop-container">
-            <h1 className="shop-h1">Leh-Leha Shop</h1>
-
-            <div className="Items">
-                {products.length > 0 ? (
-                products.map((product) => (
+             <div className="shop-container">
+                <h1 className="shop-h1">Leh-Leha Shop</h1>
+                <div className="Items"> {localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).map((product) => (
                     <Item key={product.Id} data={product} />
-                ))
-                ) : (
-                <p>Loading products...</p>
-                )}
-            </div>
-            </div>
+                )): ""}</div>
+             </div>
 </>     
     )
 }
