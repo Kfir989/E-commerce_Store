@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="public/E-Commerce_Digital_store.png" alt="Project Banner" width="800">
+  <img src="Client/public/E-Commerce_Digital_store.png" alt="Project Banner" width="800">
 </p>
 
 --- 
