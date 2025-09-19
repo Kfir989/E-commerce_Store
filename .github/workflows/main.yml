@@ -15,17 +15,17 @@ jobs:
         shell: bash
 
     steps:
-      # 1️⃣ Checkout repository
+
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # 2️⃣ Set up Node.js
+  
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # 3️⃣ Find the client folder automatically
+    
       - name: Find client folder
         id: find-client
         run: |
@@ -38,13 +38,13 @@ jobs:
             exit 1
           fi
 
-      # 4️⃣ Install dependencies
+ 
       - name: Install client dependencies
         run: |
           cd $CLIENT_PATH
           npm install
 
-      # 5️⃣ Run tests
+      #  Run tests
       - name: Run React tests
         run: |
           cd $CLIENT_PATH
