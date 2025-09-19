@@ -12,10 +12,8 @@ const tasks_coll = db.collection('shop');
 const app = express();
 app.use(express.json()); // Middleware to parse JSON body
 
-const API_URL = process.env.REACT_APP_API_URL || '';
-
 // GET route to fetch all products from the MangoDB
-app.get(`${API_URL}/products`, (req, res) => {
+app.get(`/products`, (req, res) => {
   db.shop.find({}, (error, docs) => {
     if (error) {
       console.error('MongoDB query error:', error);
