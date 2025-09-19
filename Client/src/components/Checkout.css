@@ -1,0 +1,136 @@
+
+.Container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+    
+
+}
+.table-title{
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+}
+.form-container{
+    width: 100%;
+    max-width: 600px;
+    padding: 25px 35px;
+    margin: 30px;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.Row{
+    margin-bottom: 20px;
+
+}
+.Row input, select{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+.form-control{
+    border: none;
+}
+.check-out-btn{
+    text-align: center;
+    margin-top: 20px;
+
+}
+.check-out-btn button{
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    width: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+
+}
+.check-out-btn:hover{
+    background: -webkit-linear-gradient(right, #9f01ea, #56d8e4, #9f01ea, #56d8e4);
+
+}
+
+.cart-i{
+    width: 100%;
+    padding: 10px;
+    overflow-x: auto;
+
+}
+.cart-i table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+
+.ItemInCheckout img{
+    max-width: 100px;
+}
+th{
+    padding: 20px;
+    border: 2px solid #242424;
+}
+
+
+td{
+    border: 2px solid #242424;
+}
+
+td img{
+    max-width: 80px;
+}
+@media screen and (max-width: 1430px) {
+
+  td img{
+    max-width: 70px;
+}
+}
+@media screen and (max-width: 350px) {
+
+    td img{
+      max-width: 10px;
+    }
+
+}
+@media screen and (max-width: 450px) {
+    .check-out-btn{
+        button{
+            width: 230px;
+
+
+        }
+    }
+    .form-container{
+        display:contents;
+    }
+    .Row input, select{
+        background-color: transparent;
+
+    }
+    .cart-i table{
+        display:block;
+        overflow: hidden;
+        margin-bottom: -55px;
+
+    }
+
+  }  
+
+
+
+
+
+
+
