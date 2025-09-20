@@ -4,14 +4,14 @@ import Cart from "./Cart";
 import { ShopContext } from "./Context";
 import { MemoryRouter } from 'react-router-dom';
 
-// default context
+
 const defaultContext = {
   cartItems: {},
   gettotalprice: () => 0,
   Handleclick: jest.fn()
 };
 
-// Helper function to render Cart with context
+// Helper function 
 const renderCart = (contextValue = defaultContext) => {
   return render(
     <ShopContext.Provider value={contextValue}>
@@ -22,7 +22,7 @@ const renderCart = (contextValue = defaultContext) => {
   );
 };
 
-// Check if text and buttons exist
+
 test("renders cart title, total price, and buttons", () => {
   renderCart();
 
@@ -32,7 +32,7 @@ test("renders cart title, total price, and buttons", () => {
   expect(screen.getByText(/Checkout/i)).toBeInTheDocument();
 });
 
-// Checkout button is disabled if total is 0
+
 test("checkout button is not clickable if total is 0", () => {
   renderCart({
     ...defaultContext,
@@ -45,7 +45,7 @@ test("checkout button is not clickable if total is 0", () => {
 
 });
 
-// Close button calls Handleclick
+
 test("clicking Close calls Handleclick", () => {
   const handleClickMock = jest.fn();
 

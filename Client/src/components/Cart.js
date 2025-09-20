@@ -25,7 +25,7 @@ function Cart(){
             <div className="cart-buttons">
                 <button className={total > 0 ? "cart-btn1": 'cart-btn4'} onClick={Handleclick}>Close</button>
 
-                <Link to={total > 0 ? "/checkout" : "#"}><button className="cart-btn2" disabled={total === 0}>Checkout</button></Link>
+                <Link to={total > 0 ? "/checkout" : "#"}><button className="cart-btn2" onClick={Handleclick} disabled={total === 0}>Checkout</button></Link>
             </div>
         </div>
     )

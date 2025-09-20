@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react"; //new use context
 import './BodyS.css';
 import Video from './Background/nightsky.mp4'
 import { Item } from "./Item";
-
+import { ShopContext } from "./Context"; //new
 
 
 function Bodys(){
+    
+    const { products } = useContext(ShopContext); //new
 
     const scrollToShop = () => {
         window.scrollTo({
@@ -93,9 +95,16 @@ function Bodys(){
              <br></br>
              <div className="shop-container">
                 <h1 className="shop-h1">Leh-Leha Shop</h1>
-                <div className="Items"> {localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).map((product) => (
+                {/*<div className="Items"> {localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")).map((product) => (
                     <Item key={product.Id} data={product} />
-                )): ""}</div>
+                )): ""}</div>*/}
+                <div className="Items">
+                    {products && products.length > 0
+                        ? products.map((product) => (
+                            <Item key={product.Id} data={product} />
+                        ))
+                        : "No products available"}
+                </div>
              </div>
 </>     
     )
